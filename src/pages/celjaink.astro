@@ -1,15 +1,132 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const title = 'Céljaink - onyta.hu';
-const description = 'Céljaink - onyta.hu';
+const title = 'Céljaink - ÖNYTA';
+const description = 'Az Önismeret a Nyitott Társadalomért Alapítvány célkitűzései a társadalmi bizalom, a kritikai gondolkodás és az együttműködés előmozdításáért.';
+
+const goals = [
+  {
+    id: '01',
+    text: 'A társadalmi bizalom erősítése önismereti és közösségi programokon keresztül',
+    color: 'from-blue-500 to-indigo-600',
+    iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
+    icon: 'users',
+  },
+  {
+    id: '02',
+    text: 'A kritikai gondolkodás fejlesztése, különös tekintettel az információs környezet kihívásaira',
+    color: 'from-indigo-500 to-purple-600',
+    iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-100',
+    icon: 'brain',
+  },
+  {
+    id: '03',
+    text: 'Az összeesküvés-elméletek és dezinformáció terjedésének csökkentése oktatási és közösségi eszközökkel',
+    color: 'from-sky-500 to-blue-600',
+    iconBg: 'bg-sky-50 text-sky-600 border-sky-100',
+    icon: 'shield',
+  },
+  {
+    id: '04',
+    text: 'Nyitott, biztonságos párbeszédterek létrehozása különböző társadalmi csoportok között',
+    color: 'from-teal-500 to-emerald-600',
+    iconBg: 'bg-teal-50 text-teal-600 border-teal-100',
+    icon: 'chat',
+  },
+  {
+    id: '05',
+    text: 'Mentális egészséget és önreflexiót támogató kezdeményezések erősítése',
+    color: 'from-rose-500 to-pink-600',
+    iconBg: 'bg-rose-50 text-rose-600 border-rose-100',
+    icon: 'heart',
+  },
+];
 ---
 
 <Base title={title} description={description}>
-  <section class="py-12">
-    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-      Céljaink
-    </h1>
-    <!-- TODO: Add services description and offerings -->
-  </section>
+  <div class="space-y-12 py-4">
+    <!-- Header Section -->
+    <section class="max-w-3xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-blue-50 text-blue-700 border border-blue-100">
+        <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+        Küldetésünk és fókuszterületeink
+      </div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+        Céljaink
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Alapítványunk célja, hogy elmélyítse az önismeretet, erősítse a nyitottságot és támogassa a közösségi összefogást egy élhetőbb, tudatosabb társadalomért.
+      </p>
+    </section>
+
+    <!-- Goals Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {
+        goals.map((goal, index) => (
+          <div
+            class:list={[
+              'relative flex flex-col justify-between p-7 rounded-2xl bg-white border border-gray-200/80 shadow-sm transition-all duration-200 hover:shadow-md hover:border-gray-300',
+              index === 0 ? 'lg:col-span-2 bg-gradient-to-br from-blue-50/50 via-white to-white border-blue-100' : '',
+            ]}
+          >
+            <div class="space-y-5">
+              <div class="flex items-center justify-between">
+                <!-- Icon Box -->
+                <div class:list={['w-12 h-12 rounded-xl flex items-center justify-center border shadow-xs', goal.iconBg]}>
+                  {goal.icon === 'users' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  )}
+                  {goal.icon === 'brain' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z" />
+                      <path d="M9 21h6" />
+                      <path d="M10 17v4" />
+                      <path d="M14 17v4" />
+                    </svg>
+                  )}
+                  {goal.icon === 'shield' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  )}
+                  {goal.icon === 'chat' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                      <line x1="8" y1="9" x2="16" y2="9" />
+                      <line x1="8" y1="13" x2="14" y2="13" />
+                    </svg>
+                  )}
+                  {goal.icon === 'heart' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                    </svg>
+                  )}
+                </div>
+
+                <!-- Number Badge -->
+                <span class="text-xs font-bold tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-gray-500">
+                  {goal.id}
+                </span>
+              </div>
+
+              <p class="text-base sm:text-lg font-medium text-gray-900 leading-snug">
+                {goal.text}
+              </p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
+              <span>Kiemelt célkitűzés</span>
+              <div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </div>
 </Base>
