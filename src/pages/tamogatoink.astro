@@ -1,15 +1,165 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const title = 'Támogatóink - onyta.hu';
-const description = 'Támogatóink - onyta.hu';
+const title = 'Támogatóink - ÖNYTA';
+const description = 'Az alapítvány munkáját olyan hazai és nemzetközi partnerek segítik, akik elkötelezettek a nyitott társadalom és a demokratikus értékek mellett.';
+
+const partners = [
+  {
+    name: 'Erasmus+',
+    category: 'Európai Unió',
+    badgeColor: 'bg-blue-50 text-blue-700 border-blue-100',
+    iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
+    icon: 'erasmus',
+  },
+  {
+    name: 'Citizens, Equality, Rights and Values Programme (CERV)',
+    category: 'Európai Unió',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-100',
+    iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-100',
+    icon: 'cerv',
+  },
+  {
+    name: 'Creative Europe',
+    category: 'Európai Unió',
+    badgeColor: 'bg-purple-50 text-purple-700 border-purple-100',
+    iconBg: 'bg-purple-50 text-purple-600 border-purple-100',
+    icon: 'creative-europe',
+  },
+  {
+    name: 'Open Society Foundations',
+    category: 'Nemzetközi Alapítvány',
+    badgeColor: 'bg-teal-50 text-teal-700 border-teal-100',
+    iconBg: 'bg-teal-50 text-teal-600 border-teal-100',
+    icon: 'osf',
+  },
+  {
+    name: 'European Cultural Foundation',
+    category: 'Európai Alapítvány',
+    badgeColor: 'bg-amber-50 text-amber-700 border-amber-100',
+    iconBg: 'bg-amber-50 text-amber-600 border-amber-100',
+    icon: 'ecf',
+  },
+];
 ---
 
 <Base title={title} description={description}>
-  <section class="py-12">
-    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-      Támogatóink
-    </h1>
-    <!-- TODO: Add services description and offerings -->
-  </section>
+  <div class="space-y-12 py-4">
+    <!-- Header Section -->
+    <section class="max-w-3xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-blue-50 text-blue-700 border border-blue-100">
+        <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+        Partnereink & Támogató szervezetek
+      </div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+        Támogatóink
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Az alapítvány munkáját olyan hazai és nemzetközi partnerek segítik, akik elkötelezettek a nyitott társadalom és a demokratikus értékek mellett.
+      </p>
+    </section>
+
+    <!-- Highlight Banner Box -->
+    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50/70 via-white to-gray-50 border border-blue-100/60 p-6 sm:p-8 shadow-sm">
+      <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-100/50 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+      <div class="relative flex items-start sm:items-center gap-4 sm:gap-6">
+        <div class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-blue-600 text-white shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <div class="space-y-1">
+          <h2 class="text-lg font-bold text-gray-900">
+            Nemzetközi és hazai együttműködések
+          </h2>
+          <p class="text-base text-gray-700">
+            Közös programjaink és kezdeményezéseink a nyitott párbeszédet, a társadalmi kohéziót és az európai demokratikus értékeket erősítik.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {
+        partners.map((partner, index) => (
+          <div
+            class:list={[
+              'relative flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-white border border-gray-200/80 shadow-sm transition-all duration-200 hover:shadow-md hover:border-gray-300',
+              index === 1 ? 'md:col-span-2 lg:col-span-2 bg-gradient-to-br from-indigo-50/40 via-white to-white border-indigo-100' : '',
+            ]}
+          >
+            <div class="space-y-5">
+              <div class="flex items-center justify-between gap-4">
+                <!-- Icon Box / Logo -->
+                <div class:list={['w-12 h-12 rounded-xl flex items-center justify-center border shadow-xs', partner.iconBg]}>
+                  {partner.icon === 'erasmus' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                  )}
+                  {partner.icon === 'cerv' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  )}
+                  {partner.icon === 'creative-europe' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+                      <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+                      <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                      <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+                      <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.563-2.512 5.563-5.563C22 6.5 17.5 2 12 2z" />
+                    </svg>
+                  )}
+                  {partner.icon === 'osf' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="2" y1="12" x2="22" y2="12" />
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                  )}
+                  {partner.icon === 'ecf' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 21h18" />
+                      <path d="M5 21V7l7-4 7 4v14" />
+                      <path d="M9 21v-6a3 3 0 0 1 6 0v6" />
+                      <path d="M9 10h.01" />
+                      <path d="M15 10h.01" />
+                    </svg>
+                  )}
+                </div>
+
+                <!-- Category Badge -->
+                <span class:list={['text-xs font-semibold px-2.5 py-1 rounded-md border', partner.badgeColor]}>
+                  {partner.category}
+                </span>
+              </div>
+
+              <!-- Partner Title -->
+              <div class="space-y-2">
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight leading-snug">
+                  {partner.name}
+                </h2>
+              </div>
+            </div>
+
+            <!-- Card Bottom Accent -->
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-medium text-gray-500">
+              <span class="inline-flex items-center gap-1.5 text-blue-600">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                Támogató partner
+              </span>
+              <span class="text-gray-400">Demokratikus értékek</span>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </div>
 </Base>
