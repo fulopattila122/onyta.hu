@@ -1,15 +1,133 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const title = 'Programjaink - onyta.hu';
-const description = 'Programjaink - onyta.hu';
+const title = 'Programjaink - ÖNYTA';
+const description = 'Ismerje meg az Önismeret a Nyitott Társadalomért Alapítvány programjait: önismereti műhelyek, társadalmi párbeszéd fórumok, kritikai gondolkodás képzések és közösségi kezdeményezések támogatása.';
+
+const programs = [
+  {
+    title: 'Önismereti műhelyek',
+    badge: 'Műhelymunka',
+    badgeColor: 'bg-blue-50 text-blue-700 border-blue-100',
+    iconBg: 'bg-blue-50 text-blue-600 border-blue-100',
+    icon: 'compass',
+    description: 'Kiscsoportos foglalkozások, amelyek az önreflexiót és a belső működés megértését segítik.',
+    accent: 'from-blue-500 to-indigo-600',
+  },
+  {
+    title: 'Társadalmi párbeszéd fórumok',
+    badge: 'Nyitott Fórum',
+    badgeColor: 'bg-teal-50 text-teal-700 border-teal-100',
+    iconBg: 'bg-teal-50 text-teal-600 border-teal-100',
+    icon: 'dialogue',
+    description: 'Moderált beszélgetések aktuális társadalmi kérdésekről, különböző nézőpontok bevonásával.',
+    accent: 'from-teal-500 to-emerald-600',
+  },
+  {
+    title: 'Kritikai gondolkodás képzések',
+    badge: 'Képzés & Médiaértés',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-100',
+    iconBg: 'bg-indigo-50 text-indigo-600 border-indigo-100',
+    icon: 'brain',
+    description: 'Oktatási programok fiatalok és felnőttek számára a dezinformáció felismeréséről és kezeléséről.',
+    accent: 'from-indigo-500 to-purple-600',
+  },
+  {
+    title: 'Közösségi kezdeményezések támogatása',
+    badge: 'Közösségépítés',
+    badgeColor: 'bg-amber-50 text-amber-700 border-amber-100',
+    iconBg: 'bg-amber-50 text-amber-600 border-amber-100',
+    icon: 'users',
+    description: 'Olyan projektek támogatása, amelyek erősítik a helyi közösségek együttműködését és bizalmát.',
+    accent: 'from-amber-500 to-orange-600',
+  },
+];
 ---
 
 <Base title={title} description={description}>
-  <section class="py-12">
-    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-      Programjaink
-    </h1>
-    <!-- TODO: Add contact details and contact form if needed -->
-  </section>
+  <div class="space-y-12 py-4">
+    <!-- Header Section -->
+    <section class="max-w-3xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-blue-50 text-blue-700 border border-blue-100">
+        <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+        Tevékenységeink & Műhelyeink
+      </div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+        Programjaink
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Gyakorlati programjainkkal, műhelyeinkkel és fórumainkkal az egyéni önismeret mélyítését, a nyitott társadalmi párbeszédet és a helyi közösségek együttműködését segítjük.
+      </p>
+    </section>
+
+    <!-- Programs Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {
+        programs.map((program) => (
+          <div class="relative flex flex-col justify-between p-7 sm:p-8 rounded-2xl bg-white border border-gray-200/80 shadow-sm transition-all duration-200 hover:shadow-md hover:border-gray-300">
+            <div class="space-y-5">
+              <div class="flex items-center justify-between gap-4">
+                <!-- Icon Box -->
+                <div class:list={['w-12 h-12 rounded-xl flex items-center justify-center border shadow-xs', program.iconBg]}>
+                  {program.icon === 'compass' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" />
+                      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                    </svg>
+                  )}
+                  {program.icon === 'dialogue' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                      <path d="M8 9h8" />
+                      <path d="M8 13h5" />
+                    </svg>
+                  )}
+                  {program.icon === 'brain' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z" />
+                      <path d="M9 21h6" />
+                      <path d="M10 17v4" />
+                      <path d="M14 17v4" />
+                    </svg>
+                  )}
+                  {program.icon === 'users' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  )}
+                </div>
+
+                <!-- Category Badge -->
+                <span class:list={['text-xs font-semibold px-2.5 py-1 rounded-md border', program.badgeColor]}>
+                  {program.badge}
+                </span>
+              </div>
+
+              <!-- Title & Description -->
+              <div class="space-y-2">
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
+                  {program.title}
+                </h2>
+                <p class="text-base text-gray-600 leading-relaxed">
+                  {program.description}
+                </p>
+              </div>
+            </div>
+
+            <!-- Card Bottom Accent -->
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-medium text-gray-500">
+              <span class="inline-flex items-center gap-1.5 text-blue-600">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                Részvételi lehetőség
+              </span>
+              <span class="text-gray-400">ÖNYTA Kezdeményezés</span>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </div>
 </Base>
