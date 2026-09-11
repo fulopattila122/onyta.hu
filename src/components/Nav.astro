@@ -1,0 +1,46 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/rolunk', label: 'Rólunk' },
+  { href: '/celjaink', label: 'Céljaink' },
+  { href: '/programjaink', label: 'Programjaink' },
+  { href: '/tamogatoink', label: 'Támogatóink' },
+];
+---
+
+<nav aria-label="Main Navigation">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center gap-3 text-xl font-bold tracking-tight text-gray-900">
+          <img src="/logo.png" alt="onyta.hu" width="384" height="384" class="h-10 w-10 object-contain" />
+          <span>ÖNYTA</span>
+        </a>
+      </div>
+      <div class="flex space-x-6">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                'text-sm font-medium transition-colors hover:text-blue-600',
+                currentPath === item.href
+                  ? 'text-blue-600 font-semibold'
+                  : 'text-gray-600',
+              ]}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</nav>
