@@ -1,15 +1,56 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const title = 'onyta.hu';
-const description = 'onyta.hu - Kezdőlap';
+const title = 'ÖNYTA - Önismeret egy bizalmon alapuló társadalomért';
+const description = 'Az Önismeret a Nyitott Társadalomért Alapítvány azért dolgozik, hogy támogassa azokat a folyamatokat, amelyek elősegítik a bizalom, a kritikai gondolkodás és a társadalmi együttműködés erősödését.';
 ---
 
 <Base title={title} description={description}>
-  <section class="py-12">
-    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-      onyta.hu
-    </h1>
-    <!-- TODO: Add homepage hero content and introduction -->
-  </section>
+  <div class="space-y-16 sm:space-y-20 py-4">
+    <!-- Hero Block -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-tight">
+          Önismeret egy bizalmon alapuló társadalomért
+        </h1>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="relative overflow-hidden rounded-2xl shadow-lg border border-gray-100">
+          <img
+            src="/img/5.jpg"
+            alt="Önismeret egy bizalmon alapuló társadalomért"
+            width="1280"
+            height="720"
+            class="w-full h-auto object-cover aspect-[16/9] lg:aspect-[4/3]"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- What is this / About Section -->
+    <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50/70 via-white to-gray-50 border border-blue-100/60 p-8 sm:p-12 shadow-sm">
+      <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-100/50 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+      
+      <div class="relative max-w-4xl mx-auto">
+        <div class="flex items-start gap-4 sm:gap-6">
+          <div class="hidden sm:flex flex-shrink-0 items-center justify-center w-12 h-12 rounded-xl bg-blue-600 text-white shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="space-y-4 text-lg sm:text-xl text-gray-700 leading-relaxed">
+            <p>
+              Az Önismeret a Nyitott Társadalomért Alapítvány azért dolgozik, hogy támogassa
+              azokat a folyamatokat, amelyek elősegítik a bizalom, a kritikai gondolkodás és a
+              társadalmi együttműködés erősödését.
+            </p>
+            <p class="font-medium text-gray-900 border-l-4 border-blue-600 pl-4 py-1 bg-white/70 rounded-r-lg">
+              Programjaink az egyéni fejlődés és a közösségi párbeszéd összekapcsolására
+              épülnek.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </Base>
